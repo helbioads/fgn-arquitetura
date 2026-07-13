@@ -1,27 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
 
+import testimonialsData from "../content/testimonials.json";
+import projectsData from "../content/projects.json";
+
+const testimonials = testimonialsData.testimonials;
 const services = [["Parcelamento do Solo","\ue907"],["Estudo de Massa","\ue903"],["Estudo Preliminar","\ue905"],["Projeto Arquitetônico","\ue901"],["Projeto Legal (ou Projeto de Prefeitura)","\ue906"],["Compatibilização de Projetos Complementares","\ue902"],["Projeto Executivo","\ue904"],["Projeto de Acessibilidade","\ue900"]];
-const projects = [["Tomoichi","capa-proj-tomoichi.png","tomoichi",18],["André de Almeida","capa-proj-andre-1.png","andre-de-almeida",5],["Santa Ângela","capa-proj-santaangela.png","santa-angela",9],["Santa Beatriz","capa-proj-santabeatriz.png","santa-beatriz",12],["Santa Amélia","capa-proj-santaamelia.png","santa-amelia",11],["San Isidoro","capa-proj-sanisidoro.png","san-isidoro",10],["San Luigi","capa-proj-sanluigi.png","san-luigi",11],["San Patrick","capa-proj-patric.png","san-patrick",9],["Golden Plaza","capa-proj-golden.png","golden-plaza",13],["Bicicletário Maria Augusta","capa-proj-bicicletario.jpg","bicicletario-maria-augusta",3],["Fitness Portes du Soleil","capa-proj-fitness.jpg","fitness-portes-du-soleil",5],["Santa Lúcia","capa-proj-santalucia.png","santa-lucia",16],["San Valentin","capa-proj-sanvalentin.png","san-valentin",11],["Aroeira","capa-proj-aroeira.png","aroeira",5],["Saint Dimas","capa-proj-saintdimas.png","saint-dimas",8],["Saint John","capa-proj-saintjohn.png","saint-john",8],["Parque Sálvia","capa-proj-savia.png","salvia",9],["Cerejeiras","capa-proj-cerejeras.png","cerejeiras",6],["Sisal","capa-proj-sisal.png","sisal",7]] as const;
+const projects = projectsData.projects.map(p => [p.title, p.cover, p.slug, p.images.length] as const);
 const whats="https://api.whatsapp.com/send?phone=5516997475507&text=Olá%2C%20gostaria%20de%20solicitar%20um%20orçamento.";
 
-const testimonials = [
-  {
-    quote: "Giselle é uma excelente profissional, extremamente comprometida, com capacidade em planejamento, detalhamento e uma constante busca de atualização dos conceitos e legislações.",
-    author: "Michelle Alves",
-    company: "DanPris Construtora"
-  },
-  {
-    quote: "Confiança no prazo e no resultado é o que nos fazem tão fãs do trabalho da FGN. A equipe sempre nos atendeu prontamente em nossos maiores desafios de projeto.",
-    author: "Cecília H. Figueiredo",
-    company: "MRV Engenharia"
-  },
-  {
-    quote: "O escopo proposto demandou não apenas competência técnica, mas também disponibilidade e flexibilidade, tendo em vista os diversos desafios enfrentados ao longo do processo. Sabemos que houve a necessidade de revisões, ajustes e realinhamentos durante o desenvolvimento dos projetos, e é importante ressaltar que todas as demandas foram prontamente atendidas com profissionalismo, contribuindo diretamente para o bom andamento dos trabalhos.\n\nAtualmente, os materiais entregues estão sendo efetivamente utilizados nas obras em execução, demonstrando a solidez e aplicabilidade dos documentos produzidos. Com isso, reforçamos que o serviço prestado pela FGN gerou um valor real e concreto à nossa operação.",
-    author: "Gabriel Baratieri da Rocha",
-    company: "Ecovita Construtora"
-  }
-];
 
 export default function Home(){const[menu,setMenu]=useState(false);const[slide,setSlide]=useState(0);const[hero,setHero]=useState(0);const[paused,setPaused]=useState(false);const[activeTestimonial,setActiveTestimonial]=useState(0);useEffect(()=>{const t=setInterval(()=>setHero(v=>(v+1)%3),5000);return()=>clearInterval(t)},[]);useEffect(()=>{if(paused)return;const t=setInterval(()=>{const el=document.querySelector('.projectGrid');if(!el)return;const atEnd=el.scrollLeft+el.clientWidth>=el.scrollWidth-10;if(atEnd){el.scrollTo({left:0,behavior:'smooth'});setSlide(0)}else{el.scrollBy({left:el.clientWidth/5,behavior:'smooth'});setSlide(v=>Math.min(projects.length-1,v+1))}},3500);return()=>clearInterval(t)},[paused]);const move=(dir:number)=>{const el=document.querySelector('.projectGrid');if(el)el.scrollBy({left:dir*(el.clientWidth/5),behavior:'smooth'});setSlide(v=>Math.max(0,Math.min(projects.length-1,v+dir)))};return <main>
  <header className="header"><a href="#inicio"><img src="/images/logobranco.png" className="logo" alt="FGN Arquitetura Técnica BIM"/></a><div className="headerRight"><nav className={menu?"nav open":"nav"}>{[["sobre","Sobre a FGN"],["servicos","Serviços"],["projetos","Projetos"],["contato","Contato"]].map(x=><a key={x[0]} href={`#${x[0]}`} onClick={()=>setMenu(false)}>{x[1]}</a>)}</nav><div className="headerSocial"><a href="https://www.facebook.com/fgn.arquitetura/" target="_blank" rel="noreferrer" aria-label="Facebook">&#xf09a;</a><a href="https://www.linkedin.com/company/fgnarquitetura" target="_blank" rel="noreferrer" aria-label="LinkedIn">&#xf08c;</a><a href="https://www.instagram.com/fgn.arquitetura" target="_blank" rel="noreferrer" aria-label="Instagram">&#xf16d;</a></div></div><button className="menu" onClick={()=>setMenu(!menu)} aria-label="Abrir menu"><span/><span/></button></header>
