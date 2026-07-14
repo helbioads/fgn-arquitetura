@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server';
-import { exec } from 'node:child_process';
-import { promisify } from 'node:util';
-
-const execAsync = promisify(exec);
 
 export async function POST() {
   try {
+    const { exec } = await import('node:child_process');
+    const { promisify } = await import('node:util');
+    const execAsync = promisify(exec);
+
     // Stage JSON files
     await execAsync('git add content/*.json');
     

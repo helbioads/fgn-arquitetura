@@ -1,12 +1,14 @@
 import { NextResponse } from 'next/server';
-import fs from 'node:fs/promises';
-import path from 'node:path';
+
 
 export async function POST(request: Request) {
   try {
+    const fs = await import('node:fs/promises');
+    const path = await import('node:path');
     const { settings, testimonials, projects } = await request.json();
     
     const contentDir = path.join(process.cwd(), 'content');
+
 
     // Save settings.json
     if (settings) {
