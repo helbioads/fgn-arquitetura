@@ -27,6 +27,11 @@
         });
       };
     }
+    // Force local backend for Decap CMS when running locally or on local network
+    const host = window.location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1' || host.startsWith('192.168.') || host.startsWith('10.')) {
+      window.CMS_ENV = 'development';
+    }
   </script>
   <!-- Include the Decap CMS script -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
