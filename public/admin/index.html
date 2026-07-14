@@ -225,14 +225,13 @@
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
   <!-- Include Portuguese Translation and Register it -->
-  <script src="https://unpkg.com/decap-cms-locales@^1.0.0/dist/umd/pt.js"></script>
+  <script src="https://unpkg.com/netlify-cms-locales@1.39.0/dist/netlify-cms-locales.js"></script>
   <script>
-    // Register PT-BR locale (global name is DecapCmsLocalePt)
-    if (window.DecapCmsLocalePt) {
-      window.CMS.registerLocale('pt', window.DecapCmsLocalePt);
-    } else if (window.NetlifyCmsLocalePt) {
-      window.CMS.registerLocale('pt', window.NetlifyCmsLocalePt);
+    // Register PT-BR locale using NetlifyCmsLocales
+    if (window.NetlifyCmsLocales && window.NetlifyCmsLocales.pt) {
+      window.CMS.registerLocale('pt', window.NetlifyCmsLocales.pt);
     }
   </script>
+
 </body>
 </html>
