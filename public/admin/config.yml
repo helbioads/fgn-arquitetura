@@ -23,9 +23,15 @@ collections:
             widget: "list"
             summary: "{{fields.author}} ({{fields.company}})"
             fields:
-              - { label: "Autor", name: "author", widget: "string" }
-              - { label: "Empresa / Construtora", name: "company", widget: "string" }
-              - { label: "Depoimento", name: "quote", widget: "text" }
+              - label: "Autor"
+                name: "author"
+                widget: "string"
+              - label: "Empresa / Construtora"
+                name: "company"
+                widget: "string"
+              - label: "Depoimento"
+                name: "quote"
+                widget: "text"
       - name: "projetos"
         label: "Projetos (Portfólio)"
         file: "content/projects.json"
@@ -35,7 +41,17 @@ collections:
             widget: "list"
             summary: "{{fields.title}} ({{fields.slug}})"
             fields:
-              - { label: "Título do Projeto", name: "title", widget: "string" }
-              - { label: "Slug da URL", name: "slug", widget: "string" }
-              - { label: "Capa do Projeto", name: "cover", widget: "image" }
-              - label: "Galeria de Imagens", name: "images", widget: "list", field: { label: "Imagem", widget: "image" }
+              - label: "Título do Projeto"
+                name: "title"
+                widget: "string"
+              - label: "Slug da URL"
+                name: "slug"
+                widget: "string"
+              - label: "Capa do Projeto"
+                name: "cover"
+                widget: "image"
+              - label: "Galeria de Imagens"
+                name: "images"
+                widget: "list"
+                field: { label: "Imagem", widget: "image" }
+
