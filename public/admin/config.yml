@@ -53,5 +53,6 @@ collections:
               - label: "Galeria de Imagens"
                 name: "images"
                 widget: "list"
-                field: { label: "Imagem", widget: "image" }
+                field: { label: "Imagem", name: "image", widget: "image" }
+
 
