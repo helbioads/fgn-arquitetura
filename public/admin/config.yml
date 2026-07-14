@@ -4,6 +4,9 @@ backend:
   branch: main
   site_domain: fgnarquitetura.com.br
 
+local_backend: true
+
+
 media_folder: "public/images"
 public_folder: "/images"
 
