@@ -107,6 +107,90 @@
       outline: none !important;
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
     }
+
+    /* Clean Card Layout for lists inside the editor (removes ugly retro gray borders/bg) */
+    div[class*="ListControl"] {
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 10px !important;
+      background-color: #ffffff !important;
+      padding: 24px !important;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+      margin-bottom: 24px !important;
+    }
+
+    /* Header for list control (e.g. LISTA DE DEPOIMENTOS label) */
+    span[class*="ListLabel"] {
+      background-color: #1e293b !important;
+      color: #ffffff !important;
+      border-radius: 4px !important;
+      padding: 4px 10px !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+    }
+
+    /* List items wrapper */
+    div[class*="ListControl"] > div {
+      border: none !important;
+      background: none !important;
+    }
+
+    /* Style the single item box (e.g. Michelle Alves, etc.) */
+    div[class*="ListItem"] {
+      background-color: #ffffff !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 8px !important;
+      margin-bottom: 16px !important;
+      overflow: hidden !important;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02) !important;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    div[class*="ListItem"]:hover {
+      border-color: #cbd5e1 !important;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02) !important;
+      transform: translateY(-1px) !important;
+    }
+
+    /* Top bar of each item in the list (contains drag/drop collapse headers) */
+    div[class*="ListItemTopBar"] {
+      background-color: #f8fafc !important;
+      border-bottom: 1px solid #f1f5f9 !important;
+      padding: 12px 18px !important;
+      color: #475569 !important;
+      font-weight: 600 !important;
+    }
+
+    /* Drag handles and collapse arrows styling */
+    div[class*="ListItemTopBar"] button {
+      color: #64748b !important;
+      transition: color 0.15s ease !important;
+    }
+
+    div[class*="ListItemTopBar"] button:hover {
+      color: #0f172a !important;
+    }
+
+    /* Add Item Button styling */
+    button[class*="AddButton"] {
+      background-color: #10b981 !important; /* Premium Green */
+      color: #ffffff !important;
+      border-radius: 8px !important;
+      padding: 10px 20px !important;
+      font-family: 'Outfit', sans-serif !important;
+      font-weight: 600 !important;
+      border: none !important;
+      box-shadow: 0 2px 4px 0 rgba(16, 185, 129, 0.2) !important;
+      transition: all 0.2s ease !important;
+      cursor: pointer !important;
+      margin-top: 10px !important;
+    }
+
+    button[class*="AddButton"]:hover {
+      background-color: #059669 !important;
+      box-shadow: 0 4px 6px 0 rgba(5, 150, 105, 0.3) !important;
+    }
   </style>
 </head>
 <body>
