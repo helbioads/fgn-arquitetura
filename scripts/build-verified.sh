@@ -25,4 +25,9 @@ timeout \
   "${SITES_BUILD_TIMEOUT:-3m}" \
   "${vinext}" build
 
+# Create _worker.js entry points for Cloudflare Pages (both dist/ and dist/client/ to cover different output dir configs)
+echo 'export { default } from "./server/index.js";' > "${SITES_PROJECT_ROOT}/dist/_worker.js"
+echo 'export { default } from "../server/index.js";' > "${SITES_PROJECT_ROOT}/dist/client/_worker.js"
+
 "${script_dir}/validate-artifact.sh"
+
