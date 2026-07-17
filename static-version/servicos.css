@@ -1,0 +1,153 @@
+/* Services page custom styles */
+body.servicePage {
+  background: #fff;
+  color: #1f1f1f;
+  font: 400 14px/25px Montserrat, sans-serif;
+}
+
+body.servicePage > header,
+.serviceIntro,
+.serviceTabs {
+  width: min(1140px, calc(100% - 40px));
+  margin: auto;
+}
+
+body.servicePage > header {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+body.servicePage > header img {
+  width: 130px;
+}
+
+body.servicePage > header > a:last-child {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  color: #173f39;
+}
+
+.serviceIntro {
+  padding: 75px 0 55px;
+}
+
+.serviceIntro > p {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: .12em;
+  font-weight: bold;
+  color: #65776f;
+  margin: 0;
+}
+
+.serviceIntro h1 {
+  font: 700 46px Montserrat;
+  text-transform: uppercase;
+  margin: 5px 0 20px;
+  letter-spacing: -.03em;
+}
+
+.serviceIntro span {
+  font-size: 15px;
+  color: #59635e;
+}
+
+.serviceTabs {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 70px;
+  padding-bottom: 120px;
+}
+
+.serviceTabs nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.serviceTabs nav button {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  align-items: center;
+  text-align: left;
+  gap: 18px;
+  padding: 16px;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.serviceTabs nav i,
+.serviceTabs article > i {
+  font: 42px/1 fgn;
+  color: #aaa;
+  font-style: normal;
+}
+
+.serviceTabs nav button.active {
+  background: #101010;
+  color: white;
+}
+
+.serviceTabs nav button.active i {
+  color: #0098fc;
+}
+
+.serviceTabs nav span {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.serviceTabs article {
+  padding: 35px 0;
+}
+
+.serviceTabs article > i {
+  font-size: 64px;
+  color: #0098fc;
+}
+
+.serviceTabs article h2 {
+  font: 700 29px Montserrat;
+  text-transform: uppercase;
+  margin: 25px 0;
+  letter-spacing: -.02em;
+}
+
+.serviceTabs article p {
+  line-height: 1.8;
+  margin: 0 0 15px;
+  color: #59635e;
+  font-size: 15px;
+}
+
+@media(max-width:700px) {
+  .serviceTabs {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .serviceIntro {
+    padding-top: 40px;
+  }
+  .serviceTabs nav button {
+    grid-template-columns: 46px minmax(0,1fr);
+    gap: 12px;
+    padding: 14px 10px;
+  }
+  .serviceTabs nav span {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+  }
+  .serviceTabs article {
+    min-width: 0;
+  }
+  .serviceTabs article h2 {
+    font-size: 24px;
+  }
+}
