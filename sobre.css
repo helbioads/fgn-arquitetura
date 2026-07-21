@@ -1,18 +1,24 @@
-/* Sobre a FGN Page CSS Styles */
+/* sobre.css - Specific stylesheet to style the About page layout matching the print exactly */
 
 body.aboutPage {
-  background: #faf9f5;
+  background: #fff;
   color: #1f1f1f;
   font-family: Montserrat, sans-serif;
   overflow-x: clip;
 }
 
-/* Header Adjustments for Light Background Page */
+/* Header style for dark background top section */
 body.aboutPage .header {
-  position: relative;
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  height: 90px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  padding: 0 max(20px, calc((100vw - 1140px)/2));
+  z-index: 10;
 }
 
 body.aboutPage .header .logo {
@@ -20,350 +26,336 @@ body.aboutPage .header .logo {
 }
 
 body.aboutPage .nav a {
-  color: #1f1f1f;
+  color: #fff;
 }
 
 body.aboutPage .nav a:hover,
 body.aboutPage .nav a.active {
-  color: #173f39;
-  font-weight: 700;
+  color: #c5e7ff;
 }
 
 body.aboutPage .headerSocial a {
-  color: #1f1f1f;
+  color: #fff;
 }
 
 body.aboutPage .headerSocial a:hover {
-  color: #173f39;
+  color: #c5e7ff;
 }
 
 body.aboutPage .menu span {
-  background: #1f1f1f;
+  background: #fff;
 }
 
-/* Intro Banner Section */
+/* 1. Intro Section (Dark Background, overlapping images) */
 .aboutIntro {
-  background: #173f39 linear-gradient(rgba(23, 63, 57, 0.93), rgba(23, 63, 57, 0.93)) url('images/fundo-depoimento2.png') center/cover no-repeat;
+  background: #0d0d0d;
   color: #fff;
-  padding: 85px 0 65px;
-  text-align: center;
+  padding: 140px 0 100px;
 }
 
-.aboutIntro .eyebrow {
-  color: #c5e7ff;
+.aboutIntroGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.aboutIntroText .eyebrow {
+  color: #fff;
   font-size: 13px;
-  letter-spacing: .08em;
   font-weight: 700;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.aboutIntro h1 {
-  font-size: clamp(30px, 4.5vw, 42px);
+.aboutIntroText h1 {
+  font-size: clamp(28px, 4vw, 36px);
   line-height: 1.15;
   text-transform: uppercase;
-  margin: 0 auto 15px;
-  max-width: 900px;
+  margin: 0 0 18px;
+  font-weight: 700;
+  color: #fff;
 }
 
-.aboutIntro h2 {
-  font-size: clamp(18px, 2.5vw, 24px);
-  font-weight: 400;
-  color: #d1d9d3;
-  margin-bottom: 20px;
-}
-
-.aboutIntro .lead {
-  font-size: 15px;
-  color: #c5e7ff;
-  margin: 0;
-}
-
-/* Body Content Section */
-.aboutContent {
-  padding: 80px 0;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 60px;
-}
-
-.aboutMainText p {
-  font-size: 15px;
-  line-height: 1.8;
-  color: #59635e;
-  margin-bottom: 25px;
-}
-
-.aboutMainText p.highlight {
+.aboutIntroText .subtitle {
   font-size: 18px;
-  line-height: 1.7;
-  color: #1f1f1f;
+  color: #c5e7ff;
+  font-weight: 700;
+  margin-bottom: 25px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.aboutIntroText p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #cbd1ca;
+  margin-bottom: 18px;
+}
+
+.aboutIntroText p strong {
+  color: #fff;
   font-weight: 700;
 }
 
-.aboutCallout {
-  background: #fff;
-  border-left: 4px solid #173f39;
-  padding: 30px;
-  margin: 40px 0;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-}
-
-.aboutCallout strong {
-  display: block;
-  font-size: 16px;
-  color: #173f39;
-  margin-bottom: 10px;
-}
-
-.aboutCallout p {
-  margin: 0;
-  font-size: 14px;
-}
-
-/* Sidebar Stats Grid */
-.aboutStatsGrid {
+.aboutIntroVisual {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.aboutIntroVisual .aboutVisual {
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+
+.aboutIntroVisual .aboutVisual img {
+  position: absolute;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.aboutIntroVisual .aboutOne {
+  width: 70%;
+  height: 75%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.aboutIntroVisual .aboutTwo {
+  width: 60%;
+  height: 60%;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  border: 8px solid #0d0d0d;
+}
+
+/* 2. Statistics Section (White Background, boxed columns) */
+.aboutStatsSection {
+  background: #fff;
+  padding: 80px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.aboutStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  justify-content: start;
 }
 
 .aboutStatCard {
   background: #fff;
-  padding: 35px 30px;
-  border: 1px solid #ebebeb;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  border: 1px solid #e3e7f0;
+  border-radius: 4px;
+  padding: 45px 25px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
 }
 
 .aboutStatCard strong {
-  font-size: 58px;
-  line-height: 1;
-  color: #a5c3d9;
+  font-size: clamp(38px, 4.5vw, 54px);
+  line-height: 1.1;
+  color: #0098fc;
   font-weight: 700;
   letter-spacing: -2px;
 }
 
+.aboutStatCard strong span {
+  font-size: 16px;
+  font-weight: 400;
+  color: #1f1f1f;
+  letter-spacing: 0;
+  margin: 0 4px;
+}
+
 .aboutStatCard span {
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #1f1f1f;
+  color: #888;
   margin-top: 10px;
+  font-weight: 700;
 }
 
-/* History and Purpose */
+/* 3. History, Purpose & Founders Section (Yellow Background) */
 .historyPurpose {
-  background: #101010;
-  color: #fff;
-  padding: 85px 0;
-  text-align: center;
+  background: #f4ba40;
+  color: #1f1f1f;
+  padding: 100px 0;
 }
 
-.historyPurpose h2,
-.foundersSection h2,
-.aboutMethodology h2 {
-  font-size: 28px;
+.historyPurpose h2 {
+  font-size: 30px;
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 25px;
-  letter-spacing: -.02em;
-}
-
-.historyPurpose p {
-  font-size: 16px;
-  line-height: 1.85;
-  color: #d1d9d3;
-  max-width: 850px;
-  margin: 0 auto;
-}
-
-/* Founders Section */
-.foundersSection {
-  padding: 95px 0;
-}
-
-.foundersSection h2 {
   text-align: center;
-  margin-bottom: 55px;
+}
+
+.historyPurpose .historyLead {
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 70px;
+  color: #1f1f1f;
 }
 
 .foundersGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 60px;
+  align-items: start;
 }
 
 .founderCard {
-  background: #fff;
-  border: 1px solid #ebebeb;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  text-align: center;
 }
 
-.founderImage {
-  height: 380px;
-  overflow: hidden;
-  position: relative;
-}
-
-.founderImage img {
-  width: 100%;
-  height: 100%;
+.founderAvatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
   object-fit: cover;
-  object-position: center;
-  transition: transform 0.6s ease;
+  margin: 0 auto 20px;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: block;
 }
 
-.founderCard:hover .founderImage img {
-  transform: scale(1.03);
-}
-
-.founderInfo {
-  padding: 35px 30px;
-}
-
-.founderInfo h3 {
+.founderCard h3 {
   font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
-  margin: 0 0 8px;
-  color: #173f39;
+  margin: 0 0 5px;
+  color: #1f1f1f;
 }
 
-.founderInfo .role {
+.founderCard .role {
   display: block;
-  font-size: 13px;
-  font-weight: 700;
-  color: #a5c3d9;
+  font-size: 12px;
   text-transform: uppercase;
-  margin-bottom: 20px;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
+  color: #555;
+  margin-bottom: 18px;
+  font-weight: 700;
 }
 
-.founderInfo p {
+.founderCard p {
   font-size: 14px;
-  line-height: 1.75;
-  color: #59635e;
+  line-height: 1.7;
+  color: #333;
+  text-align: justify;
   margin: 0;
 }
 
-/* Methodology Section */
+/* 4. Methodology Section (White Background) */
 .aboutMethodology {
   background: #fff;
-  border-top: 1px solid #eee;
-  padding: 85px 0;
+  padding: 100px 0;
   text-align: center;
+}
+
+.aboutMethodology h2 {
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 30px;
 }
 
 .aboutMethodology p {
   font-size: 15px;
   line-height: 1.85;
   color: #59635e;
-  max-width: 850px;
+  max-width: 950px;
   margin: 0 auto 20px;
 }
 
-.aboutMethodology p:last-child {
-  margin-bottom: 0;
+/* 5. Projects Slide at the bottom overrides */
+.aboutPage .projects {
+  border-top: 1px solid #111;
 }
 
-/* Media Queries Responsiveness */
-@media(max-width: 900px) {
+/* Responsive Overrides */
+@media (max-width: 900px) {
   body.aboutPage .header {
     height: 80px;
-  }
-  
-  body.aboutPage .header .logo {
-    filter: none !important;
-  }
-  
-  body.aboutPage .menu span {
-    background: #1f1f1f !important;
   }
   
   body.aboutPage .nav.open {
     top: 80px;
   }
   
-  .aboutContent {
+  .aboutIntro {
+    padding-top: 110px;
+  }
+  
+  .aboutIntroGrid {
     grid-template-columns: 1fr;
     gap: 40px;
-    padding: 55px 0;
+  }
+  
+  .aboutIntroVisual .aboutVisual {
+    max-width: 500px;
+    height: 350px;
+    margin: 0 auto;
   }
   
   .aboutStatsGrid {
-    flex-direction: row;
-    flex-wrap: wrap;
+    grid-template-columns: 1fr;
     gap: 20px;
   }
   
   .aboutStatCard {
-    flex: 1 1 calc(33.333% - 14px);
-    min-width: 200px;
+    padding: 35px 20px;
   }
   
   .foundersGrid {
     grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .founderImage {
-    height: 420px;
+    gap: 50px;
   }
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .aboutIntro {
-    padding: 60px 0 50px;
+    padding: 100px 0 60px;
   }
   
-  .aboutIntro h1 {
-    font-size: 26px;
+  .aboutIntroText h1 {
+    font-size: 24px;
   }
   
-  .aboutIntro h2 {
-    font-size: 16px;
+  .aboutIntroText .subtitle {
+    font-size: 15px;
   }
   
-  .aboutMainText p.highlight {
-    font-size: 16px;
+  .aboutIntroVisual .aboutVisual {
+    height: 250px;
   }
   
-  .aboutCallout {
-    padding: 20px;
-    margin: 25px 0;
-  }
-  
-  .aboutStatsGrid {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .aboutStatCard {
-    width: 100%;
-  }
-  
-  .aboutStatCard strong {
-    font-size: 48px;
-  }
-  
-  .founderImage {
-    height: 300px;
-  }
-  
-  .founderInfo {
-    padding: 25px 20px;
+  .aboutIntroVisual .aboutTwo {
+    border-width: 5px;
   }
   
   .historyPurpose,
-  .foundersSection,
   .aboutMethodology {
-    padding: 55px 0;
+    padding: 60px 0;
+  }
+  
+  .historyPurpose h2,
+  .aboutMethodology h2 {
+    font-size: 24px;
+  }
+  
+  .founderCard p {
+    text-align: left;
   }
 }
