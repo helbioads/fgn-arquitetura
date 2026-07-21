@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projetos - FGN Arquitetura Técnica BIM</title>
+  <meta name="description" content="Conheça nosso portfólio completo de condomínios residenciais verticais e loteamentos projetados com tecnologia BIM.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Projects Page Styles */
+    body.projectsPage {
+      background: #000;
+      color: #fff;
+    }
+    
+    body.projectsPage .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: transparent;
+      border: 0;
+      color: #fff;
+      padding: 0 max(20px, calc((100vw - 1140px)/2));
+      z-index: 10;
+    }
+    
+    body.projectsPage .header .logo {
+      filter: none;
+    }
+    
+    body.projectsPage .nav a {
+      color: #fff;
+    }
+    
+    body.projectsPage .nav a:hover,
+    body.projectsPage .nav a.active {
+      color: #c5e7ff;
+    }
+    
+    body.projectsPage .headerSocial a {
+      color: #fff;
+    }
+    
+    body.projectsPage .menu span {
+      background: #fff;
+    }
+    
+    .projectsIntro {
+      padding: 150px 0 60px;
+    }
+    
+    .projectsIntro .eyebrow {
+      color: #c5e7ff;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .projectsIntro h1 {
+      font-size: clamp(32px, 5vw, 42px);
+      line-height: 1.15;
+      text-transform: uppercase;
+      margin: 0 0 25px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+    
+    .projectsIntro p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #cbd1ca;
+      max-width: 950px;
+      margin-bottom: 20px;
+    }
+    
+    /* Static Grid for Projects Page */
+    .staticProjectGrid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border: 0;
+      margin-bottom: 60px;
+    }
+    
+    .staticProjectGrid .project {
+      flex: none;
+      width: 100%;
+      height: 420px;
+      display: block;
+    }
+    
+    /* Bottom Callout Section */
+    .projectsCallout {
+      text-align: center;
+      padding: 80px 0 100px;
+      background: #000;
+      border-top: 1px solid #111;
+    }
+    
+    .projectsCallout p {
+      font-size: 16px;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto 35px;
+      color: #cbd1ca;
+      font-style: italic;
+    }
+    
+    .projectsCallout .button {
+      padding: 16px 36px;
+      background: #f4ba40;
+      color: #1f1f1f;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      border: 0;
+      cursor: pointer;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+    
+    .projectsCallout .button:hover {
+      background: #e3a930;
+    }
+    
+    @media (max-width: 1200px) {
+      .staticProjectGrid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    @media (max-width: 900px) {
+      body.projectsPage .header {
+        height: 80px;
+      }
+      
+      body.projectsPage .nav.open {
+        top: 80px;
+      }
+      
+      .projectsIntro {
+        padding-top: 110px;
+      }
+      
+      .staticProjectGrid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .staticProjectGrid .project {
+        height: 380px;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .projectsIntro {
+        padding: 100px 0 40px;
+      }
+      
+      .projectsIntro h1 {
+        font-size: 30px;
+      }
+      
+      .staticProjectGrid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .staticProjectGrid .project {
+        height: 300px;
+      }
+      
+      .projectsCallout p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body class="projectsPage">
+  <!-- Header -->
+  <header class="header">
+    <a href="index.html">
+      <img src="images/logobranco.png" class="logo" alt="FGN Arquitetura">
+    </a>
+    <div class="headerRight">
+      <nav class="nav" id="main-nav">
+        <a href="sobre.html">Sobre a FGN</a>
+        <a href="index.html#servicos">Serviços</a>
+        <a href="projetos.html" class="active">Projetos</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+      <div class="headerSocial">
+        <a href="https://www.facebook.com/fgn.arquitetura/" target="_blank" rel="noreferrer" aria-label="Facebook">&#xf09a;</a>
+        <a href="https://www.linkedin.com/company/fgnarquitetura" target="_blank" rel="noreferrer" aria-label="LinkedIn">&#xf08c;</a>
+        <a href="https://www.instagram.com/fgn.arquitetura/" target="_blank" rel="noreferrer" aria-label="Instagram">&#xf16d;</a>
+      </div>
+    </div>
+    <button class="menu" id="menu-toggle" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Projects Intro -->
+  <section class="projectsIntro wrap">
+    <p class="eyebrow">— Projetos</p>
+    <h1>Nossos Projetos</h1>
+    <p>Desde 2004, embarcamos em uma jornada de inovação, moldando mais de 2 milhões de metros quadrados com nossa paixão pela arquitetura. A partir de 2010, nos especializamos em arquitetura habitacional, com foco em condomínios residenciais verticais.</p>
+    <p>Abaixo, apresentamos alguns exemplos de nossos projetos, capturando a essência única de cada empreendimento.</p>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="staticProjectGrid">
+    <article class="project">
+      <a href="projeto.html?slug=tomoichi">
+        <img src="images/capa-proj-tomoichi.png" alt="Projeto Tomoichi" loading="lazy">
+        <div><h3>Tomoichi</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=andre-de-almeida">
+        <img src="images/capa-proj-andre-1.png" alt="Projeto André de Almeida" loading="lazy">
+        <div><h3>André de Almeida</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=santa-angela">
+        <img src="images/capa-proj-santaangela.png" alt="Projeto Santa Ângela" loading="lazy">
+        <div><h3>Santa Ângela</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=santa-beatriz">
+        <img src="images/capa-proj-santabeatriz.png" alt="Projeto Santa Beatriz" loading="lazy">
+        <div><h3>Santa Beatriz</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=santa-amelia">
+        <img src="images/capa-proj-santaamelia.png" alt="Projeto Santa Amélia" loading="lazy">
+        <div><h3>Santa Amélia</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=san-isidoro">
+        <img src="images/capa-proj-sanisidoro.png" alt="Projeto San Isidoro" loading="lazy">
+        <div><h3>San Isidoro</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=san-luigi">
+        <img src="images/capa-proj-sanluigi.png" alt="Projeto San Luigi" loading="lazy">
+        <div><h3>San Luigi</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=san-patrick">
+        <img src="images/capa-proj-patric.png" alt="Projeto San Patrick" loading="lazy">
+        <div><h3>San Patrick</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=golden-plaza">
+        <img src="images/capa-proj-golden.png" alt="Projeto Golden Plaza" loading="lazy">
+        <div><h3>Golden Plaza</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=bicicletario-maria-augusta">
+        <img src="images/capa-proj-bicicletario.jpg" alt="Projeto Bicicletário Maria Augusta" loading="lazy">
+        <div><h3>Bicicletário M. Augusta</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=fitness-portes-du-soleil">
+        <img src="images/capa-proj-fitness.jpg" alt="Projeto Fitness Portes du Soleil" loading="lazy">
+        <div><h3>Fitness Portes du Soleil</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=santa-lucia">
+        <img src="images/capa-proj-santalucia.png" alt="Projeto Santa Lúcia" loading="lazy">
+        <div><h3>Santa Lúcia</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=san-valentin">
+        <img src="images/capa-proj-sanvalentin.png" alt="Projeto San Valentin" loading="lazy">
+        <div><h3>San Valentin</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=aroeira">
+        <img src="images/capa-proj-aroeira.png" alt="Projeto Aroeira" loading="lazy">
+        <div><h3>Aroeira Área de Lazer</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=saint-dimas">
+        <img src="images/capa-proj-saintdimas.png" alt="Projeto Saint Dimas" loading="lazy">
+        <div><h3>Saint Dimas</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=saint-john">
+        <img src="images/capa-proj-saintjohn.png" alt="Projeto Saint John" loading="lazy">
+        <div><h3>Saint John</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=salvia">
+        <img src="images/capa-proj-savia.png" alt="Projeto Parque Sálvia" loading="lazy">
+        <div><h3>Parque Sálvia</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=cerejeiras">
+        <img src="images/capa-proj-cerejeras.png" alt="Projeto Cerejeiras" loading="lazy">
+        <div><h3>Cerejeiras</h3></div>
+      </a>
+    </article>
+    <article class="project">
+      <a href="projeto.html?slug=sisal">
+        <img src="images/capa-proj-sisal.png" alt="Projeto Sisal" loading="lazy">
+        <div><h3>Sisal</h3></div>
+      </a>
+    </article>
+  </section>
+
+  <!-- Bottom Callout Section -->
+  <section class="projectsCallout">
+    <div class="wrap">
+      <p>Convidamos você a mergulhar na riqueza de nossa trajetória e descobrir como podemos transformar sua visão arquitetônica em uma realidade notável.</p>
+      <a href="contato.html" class="button">Solicite um orçamento</a>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer" id="contato">
+    <div class="wrap footerTop">
+      <img src="images/logobranco.png" alt="FGN Arquitetura">
+      <h2>Vamos trabalhar juntos</h2>
+      <strong>Deixe-nos saber o que você precisa.</strong>
+      <p>Vamos formatar a solução que melhor lhe atenda.</p>
+      <strong id="footer-address">Rua Florêncio de Abreu, 681, cj. 903. Ed. Canadá. Ribeirão Preto/SP. CEP 14015-901.</strong>
+      <div class="footerContact">
+        <a class="waCircle" href="https://api.whatsapp.com/send?phone=5516997475507&text=Olá%2C%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noreferrer" aria-label="Conversar com a FGN pelo WhatsApp">&#xf232;</a>
+        <a href="mailto:comercial@fgnarquitetura.com.br" id="footer-email">comercial@fgnarquitetura.com.br</a>
+      </div>
+    </div>
+    <div class="wrap bottom">
+      <div>
+        <span>2026 © FGN Arquitetura e Tecnologia Ltda. Todos os direitos reservados.</span>
+        <a href="politica-de-privacidade.html">Política de privacidade</a>
+      </div>
+      <div class="footerSocial">
+        <a href="https://www.facebook.com/fgn.arquitetura/" target="_blank" rel="noreferrer" aria-label="Facebook">&#xf09a;</a>
+        <a href="https://www.linkedin.com/company/fgnarquitetura" target="_blank" rel="noreferrer" aria-label="LinkedIn">&#xf08c;</a>
+        <a href="https://www.instagram.com/fgn.arquitetura/" target="_blank" rel="noreferrer" aria-label="Instagram">&#xf16d;</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Fixed Floating WhatsApp Button -->
+  <a class="whatsapp" href="https://api.whatsapp.com/send?phone=5516997475507&text=Olá%2C%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noreferrer" aria-label="Conversar com a FGN pelo WhatsApp">&#xf232;</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
